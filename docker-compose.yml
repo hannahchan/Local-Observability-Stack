@@ -24,7 +24,7 @@ services:
         target: /etc/grafana/provisioning/datasources
         type: bind
   jaeger:
-    command: [--query.ui-config /etc/jaeger/jaeger-ui.json]
+    command: ["--query.ui-config", "/etc/jaeger/jaeger-ui.json"]
     environment:
       SPAN_STORAGE_TYPE: badger
       BADGER_DIRECTORY_KEY: /badger/key
@@ -56,7 +56,7 @@ services:
       ]
     depends_on:
       - jaeger
-    image: otel/opentelemetry-collector
+    image: otel/opentelemetry-collector-contrib
     ports:
       - mode: ingress
         protocol: tcp
