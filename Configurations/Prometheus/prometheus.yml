@@ -1,15 +1,28 @@
 ---
 global:
   scrape_interval: 10s
+
 scrape_configs:
+
+  # Application Metrics
   - job_name: Application
     static_configs:
       - targets:
           - "opentelemetry-collector:9090"
+
+  # Aggregated Trace Metrics
   - job_name: Aggregated-Trace-Metrics
     static_configs:
       - targets:
           - "opentelemetry-collector:8889"
+
+  # Jaeger Metrics
+  - job_name: Jaeger
+    static_configs:
+      - targets:
+          - "jaeger:14269"
+
+  # OpenTelemetry Collector Metrics
   - job_name: OpenTelemetry-Collector
     static_configs:
       - targets:
