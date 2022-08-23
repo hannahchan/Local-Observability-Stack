@@ -16,6 +16,8 @@ receivers:
 
 processors:
   batch:
+  probabilistic_sampler:
+    sampling_percentage: 100
   spanmetrics:
     metrics_exporter: prometheus/spanmetrics
 
@@ -39,7 +41,7 @@ service:
       exporters: [logging, prometheus]
     traces:
       receivers: [otlp]
-      processors: [spanmetrics, batch]
+      processors: [spanmetrics, probabilistic_sampler, batch]
       exporters: [logging, jaeger]
 
     # The exporter name in this pipeline must match the spanmetrics.metrics_exporter name.
