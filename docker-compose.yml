@@ -7,6 +7,7 @@ services:
     environment:
       GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_FEATURE_TOGGLES_ENABLE: "traceToMetrics"
     image: grafana/grafana
     ports:
       - mode: ingress
