@@ -17,7 +17,7 @@ receivers:
 processors:
   batch:
   probabilistic_sampler:
-    sampling_percentage: 100
+    sampling_percentage: 10
   spanmetrics:
     metrics_exporter: prometheus/spanmetrics
 
